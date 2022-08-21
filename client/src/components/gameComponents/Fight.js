@@ -57,6 +57,10 @@ function Fight({charAttack, charImage, charHealth, setCharHealth, level}){
         }
     },[])
 
+    useEffect(()=>{
+        setDisplay3(<img className={toggleEnAtk? 'enemyAtk' : 'enemy'} src={enemy.sprite} />)
+        }, [enemy])
+
     //updates the display when the health values are updated
     useEffect(()=>{
         setDisplay(
