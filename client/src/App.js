@@ -12,7 +12,7 @@ import Random from './components/gameComponents/Random';
 import LoseScreen from './components/gameComponents/LoseScreen';
 import WinScreen from './components/gameComponents/WinScreen';
 import CharacterPage from './components/CharacterPage';
-import owl from "../src/images/owl.png";
+import owl from "../src/images/owl.jpg";
 import crab from "../src/images/crab.jpg";
 import cat from "../src/images/cat.jpg";
 
