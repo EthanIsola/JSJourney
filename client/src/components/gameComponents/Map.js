@@ -1,7 +1,7 @@
-import {useState, useEffect} from 'react'
+import {useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import MapTile from './MapTile';
-function Map({rowCount, setCount, rows, setRows, setStarted}){
+function Map({rowCount, rows, setRows, setStarted}){
     const history = useHistory();
 
     function quit() { 

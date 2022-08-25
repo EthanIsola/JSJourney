@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 
-function Start({setCharAttack, owl, cat, crab, charImage, setImage, setCharHealth, userID, character, setCharacter, started, setStarted, setRows, setCount}) {
+function Start({setCharAttack, owl, cat, crab, charImage, setImage, setCharHealth, userID, character, setCharacter, setStarted, setRows, setCount}) {
     const [list, setList] = useState([])
     const [myName, setMyName] = useState("")
 

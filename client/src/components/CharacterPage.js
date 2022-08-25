@@ -6,7 +6,6 @@ function CharacterPage({characterName}){
     const [items, setItems] = useState([])
     const [display, setDisplay] = useState(null)
     const [myReset, setReset] = useState(false)
-    const [character, setCharacter] = useState(null)
     const history = useHistory();
     
     const backButtonClick = () =>{  
