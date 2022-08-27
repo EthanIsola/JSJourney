@@ -30,7 +30,7 @@ function ItemCard({item, setReset, myReset, characterName}){
             },
             body: JSON.stringify(formData)
           })
-          .then(setReset(!myReset))
+          .then(myReset? setReset(!myReset) : null)
     }
     return(
         <div className="itemCard">
