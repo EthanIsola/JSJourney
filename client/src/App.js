@@ -15,6 +15,9 @@ import CharacterPage from './components/CharacterPage';
 import owl from "../src/images/owl.jpg";
 import crab from "../src/images/crab.jpg";
 import cat from "../src/images/cat.jpg";
+import goblin from "../src/images/goblin.png";
+import ogre from "../src/images/ogre.png";
+import dragon from "../src/images/dragon.png";
 
 
 function App() {
@@ -65,7 +68,7 @@ function App() {
             <Random myEvent = {myEvent} setEvent={setEvent} gold = {gold} setGold = {setGold} charHealth = {charHealth} setCharHealth = {setCharHealth}/>
           </Route>
           <Route path = '/fight'>
-            <Fight charAttack={charAttack} charImage={charImage} level={rowCount} setCharHealth = {setCharHealth} charHealth = {charHealth}/>
+            <Fight charAttack={charAttack} charImage={charImage} level={rowCount} setCharHealth = {setCharHealth} charHealth = {charHealth} goblin = {goblin} ogre ={ogre}  dragon = {dragon}/>
           </Route>
           <Route path = '/shop'>
             <Shop gold={gold} setGold={setGold} charHealth={charHealth} setCharHealth={setCharHealth}/>

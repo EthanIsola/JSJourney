@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Fight({charAttack, charImage, charHealth, setCharHealth, level}){
+function Fight({charAttack, charImage, charHealth, setCharHealth, level, goblin, ogre, dragon}){
     const [enemy, setEnemy] = useState([])
     const [display, setDisplay] = useState(null)
     const [enHealth, setEnHealth] = useState(100)
     const [toggleAtk, setAtkAnim] = useState(true)
     const [toggleEnAtk, setEnAtkAnim] = useState(0)
+    const [enemySprite, setEnemySprite] = useState([])
 
     //State variables for character sprites
     const [display2, setDisplay2] = useState(<img onAnimationEnd={()=>setAtkAnim(0)} className='fighter' src={charImage} />)
-    const [display3, setDisplay3] = useState(<img onAnimationEnd={()=>setEnAtkAnim(0)} className='enemy' src={enemy.sprite} />)
+    const [display3, setDisplay3] = useState(<img onAnimationEnd={()=>setEnAtkAnim(0)} className='enemy' src={enemySprite} />)
 
     const history = useHistory();
 
@@ -38,7 +39,6 @@ function Fight({charAttack, charImage, charHealth, setCharHealth, level}){
             setTimeout(()=>{setCharHealth(charHealth-enemy.attack)}, 550)
     }
 
-    //test
 
     //gets the data for the enemy when the fight starts
     useEffect(()=>{
@@ -58,8 +58,20 @@ function Fight({charAttack, charImage, charHealth, setCharHealth, level}){
     },[])
 
     useEffect(()=>{
-        setDisplay3(<img className={toggleEnAtk? 'enemyAtk' : 'enemy'} src={enemy.sprite} />)
-        }, [enemy])
+        if(enemy.name==="Goblin"){
+            setEnemySprite(goblin)
+        }
+        else if(enemy.name==="Ogre"){
+            setEnemySprite(ogre)
+        }
+        else{
+            setEnemySprite(dragon)
+        }
+    },[enemy])
+
+    useEffect(()=>{
+        setDisplay3(<img className={toggleEnAtk? 'enemyAtk' : 'enemy'} src={enemySprite} />)
+        }, [enemy, enemySprite])
 
     //updates the display when the health values are updated
     useEffect(()=>{
@@ -81,7 +93,7 @@ function Fight({charAttack, charImage, charHealth, setCharHealth, level}){
     //Causes enemy attack animation
     useEffect(()=>{
         if(toggleAtk!==true){
-        setDisplay3(<img onAnimationEnd={()=>setEnAtkAnim(0)} className={toggleEnAtk? 'enemyAtk' : 'enemy'} src={enemy.sprite} />) 
+        setDisplay3(<img onAnimationEnd={()=>setEnAtkAnim(0)} className={toggleEnAtk? 'enemyAtk' : 'enemy'} src={enemySprite} />) 
         }
     },[toggleEnAtk])
 
