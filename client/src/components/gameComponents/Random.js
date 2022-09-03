@@ -26,6 +26,16 @@ function Random({gold, setGold, charHealth, setCharHealth, myEvent, setEvent}){
         history.push(path)
     }
 
+    function choose1(){
+        let effects = myEvent.effect_1.split(",")
+        if(effects.includes("health")){
+            console.log("changes health")
+        }
+        else if(effects.includes("gold")){
+            console.log("changes gold")
+        }
+    }
+
     useEffect(()=>{
         console.log(myEvent)
         if(myEvent!==null){
@@ -38,7 +48,7 @@ function Random({gold, setGold, charHealth, setCharHealth, myEvent, setEvent}){
                 <img className="eventImage" src={myEvent.imageurl} />\
                 <h2 className="eventText">{myEvent.situation}</h2>
                 <div className="buttonHolder">
-                    <button className="randButton" onClick={handleClick}>{myEvent.prompt_1}</button>
+                    <button className="randButton" onClick={choose1}>{myEvent.prompt_1}</button>
                     <button className="randButton" onClick={handleClick}>{myEvent.prompt_2}</button>
                 </div>
             </div>
